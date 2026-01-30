@@ -27,5 +27,13 @@ public class ComplexTaskExecutor {
         }
 
         executor.shutdown();
+        try {
+            executor.awaitTermination(1, TimeUnit.MINUTES);
+        } catch (InterruptedException e) {
+            executor.shutdownNow();
+            Thread.currentThread().interrupt();
+        }
     }
+
+
 }

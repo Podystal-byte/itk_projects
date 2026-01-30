@@ -6,6 +6,6 @@ public class ComplexTask {
     Random random = new Random();
 
     public void execute() throws InterruptedException {
-        Thread.sleep(random.nextInt());
+        Thread.sleep(Math.abs(random.nextInt()) % 1000);
     }
 }
